@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>웰더스 - 생애 주기별 맞춤 케어 솔루션</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="header-top">
+      <a href="tel:15666597" class="header-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.1 19.79 19.79 0 01.22.5 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        1566-6597
+      </a>
+      <a href="#hero" class="logo">
+        <div class="logo-icon">
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+            <path d="M5 8L13 28L20 14L27 28L35 8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-text">WELDERS</span>
+      </a>
+      <div class="header-auth">
+        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>로그인</a>
+        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>회원가입</a>
+      </div>
+      <!-- 모바일 햄버거 -->
+      <button class="hamburger" id="hamburger" aria-label="메뉴열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="gnb" id="gnb">
+      <ul class="gnb-list">
+        <li class="gnb-item has-sub">
+          <a href="#">회사소개</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <ul>
+                <li><a href="#">인사말</a></li>
+                <li><a href="#">기업이념</a></li>
+                <li><a href="#">가치 및 사람</a></li>
+                <li><a href="#">자리매김</a></li>
+                <li><a href="#">브랜드 소개</a></li>
+                <li><a href="#">통합재가 서비스</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="gnb-item has-sub">
+          <a href="#daycare">데이케어</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <ul>
+                <li><a href="#">선한복지센터 (서대문구)</a></li>
+                <li><a href="#">차별화 서비스</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">전문인</a></li>
+                <li><a href="#">프로그램</a></li>
+                <li><a href="#">시설</a></li>
+                <li><a href="#">생활안내</a></li>
+                <li><a href="#">위치</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="gnb-item has-sub">
+          <a href="#visiting">방문재가</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <ul>
+                <li><a href="#">방문간호</a></li>
+                <li><a href="#">방문요양</a></li>
+                <li><a href="#">가족요양</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="gnb-item">
+          <a href="#rehab">1:1 재활운동</a>
+        </li>
+        <li class="gnb-item">
+          <a href="#cases">이용사례</a>
+        </li>
+        <li class="gnb-item has-sub">
+          <a href="#contact">고객센터</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <ul>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">1:1 상담</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 모바일 메뉴 드로어 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#hero">홈</a></li>
+        <li><a href="#about">회사소개</a></li>
+        <li><a href="#daycare">데이케어</a></li>
+        <li><a href="#visiting">방문재가</a></li>
+        <li><a href="#rehab">1:1 재활운동</a></li>
+        <li><a href="#life">생활안내</a></li>
+        <li><a href="#cases">이용사례</a></li>
+        <li><a href="#contact">고객센터</a></li>
+      </ul>
+      <div class="mobile-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.1 19.79 19.79 0 01.22.5 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        1566-6597
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SIDE FLOATING BUTTONS ===== -->
+  <div class="side-btns">
+    <a href="#" class="side-btn" title="VR 센터투어">
+      <div class="side-btn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+      </div>
+      <span>VR 센터투어</span>
+    </a>
+    <a href="#" class="side-btn yt" title="YouTube">
+      <div class="side-btn-icon">
+        <svg width="20" height="14" viewBox="0 0 24 16" fill="red"><path d="M23.5 2.5a3 3 0 00-2.1-2.1C19.5 0 12 0 12 0S4.5 0 2.6.4A3 3 0 00.5 2.5C0 4.4 0 8 0 8s0 3.6.5 5.5a3 3 0 002.1 2.1C4.5 16 12 16 12 16s7.5 0 9.4-.4a3 3 0 002.1-2.1C24 11.6 24 8 24 8s0-3.6-.5-5.5z"/><polygon points="9.75,11.5 15.5,8 9.75,4.5" fill="white"/></svg>
+      </div>
+      <span>YOUTUBE</span>
+    </a>
+    <a href="#" class="side-btn blog" title="블로그">
+      <div class="side-btn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+      </div>
+      <span>블로그</span>
+    </a>
+    <a href="#" class="side-btn store" title="스마트스토어">
+      <div class="side-btn-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </div>
+      <span>스마트 스토어</span>
+    </a>
+  </div>
+
+  <!-- ===== QUICK NAV ===== -->
+  <nav class="quick-nav" id="quickNav">
+    <ul>
+      <li class="active"><a href="#hero" data-section="hero">Main</a></li>
+      <li><a href="#daycare" data-section="daycare">데이케어</a></li>
+      <li><a href="#visiting" data-section="visiting">방문재가</a></li>
+      <li><a href="#rehab" data-section="rehab">1:1 재활운동</a></li>
+      <li><a href="#life" data-section="life">생활안내</a></li>
+      <li><a href="#cases" data-section="cases">이용사례</a></li>
+      <li><a href="#contact" data-section="contact">고객센터</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO SLIDER ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="slide active" style="background-image:url('hero-1.jpg')"></div>
+      <div class="slide" style="background-image:url('hero-2.jpg')"></div>
+      <div class="slide" style="background-image:url('hero-3.jpg')"></div>
+      <div class="slide-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-sub">Healthcare Brand</p>
+      <h1 class="hero-title">
+        생애 주기별<br /><em>맞춤 케어 솔루션</em>
+      </h1>
+      <p class="hero-desc">
+        질환과 노화로 인해 발생되는 신체기능 저하를<br />
+        각 건강전문가의 <strong>'케어 매니지먼트'</strong>와 <strong>'재활 운동'</strong>으로 회복시키는<br />
+        헬스케어 전문 브랜드 <strong>'웰더스'</strong>입니다.
+      </p>
+      <div class="hero-btns">
+        <a href="#about" class="hero-cta primary">웰더스 통합 재가 서비스</a>
+        <a href="#contact" class="hero-cta secondary">상담 신청하기</a>
+      </div>
+    </div>
+
+    <!-- 슬라이더 도트 -->
+    <div class="slider-dots">
+      <button class="dot active" data-idx="0"></button>
+      <button class="dot" data-idx="1"></button>
+      <button class="dot" data-idx="2"></button>
+    </div>
+
+    <!-- 슬라이더 화살표 -->
+    <button class="slider-arrow prev" id="sliderPrev">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-arrow next" id="sliderNext">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <!-- 서비스 카드 -->
+    <div class="hero-cards">
+      <a href="#daycare" class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="#2d6b4f" stroke-width="2" stroke-linecap="round"><rect x="8" y="20" width="14" height="22" rx="2"/><circle cx="15" cy="12" r="5"/><path d="M26 38h10a2 2 0 002-2V26a2 2 0 00-2-2h-4"/><path d="M30 24v-8"/></svg>
+        </div>
+        <h3>데이케어 센터</h3>
+        <p>재활형 주야간보호센터</p>
+      </a>
+      <a href="#visiting" class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="#2d6b4f" stroke-width="2" stroke-linecap="round"><path d="M12 20c0-6.6 5.4-12 12-12s12 5.4 12 12"/><path d="M6 40c0-8.8 8-16 18-16s18 7.2 18 16"/><circle cx="24" cy="14" r="5"/></svg>
+        </div>
+        <h3>방문 재가서비스</h3>
+        <p>방문재활·간호·방문요양</p>
+      </a>
+      <a href="#rehab" class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="#2d6b4f" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="10" r="5"/><path d="M24 16v12"/><path d="M12 22l12 6 12-6"/><path d="M16 40l8-12 8 12"/></svg>
+        </div>
+        <h3>1:1 방문운동</h3>
+        <p>방문운동(신경계, 근골격계)</p>
+      </a>
+    </div>
+
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label green">WELDERS</div>
+      <h2 class="section-title">웰더스를 소개합니다</h2>
+      <p class="section-desc">
+        웰더스는 어르신과 가족의 건강하고 행복한 삶을 위해<br />
+        전문 의료진과 케어 전문가가 함께하는 통합 헬스케어 브랜드입니다.
+      </p>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-img">
+            <img src="about-daycare.jpg" alt="데이케어 센터" loading="lazy" />
+            <div class="about-card-overlay"><span>Day Care</span></div>
+          </div>
+          <div class="about-card-body">
+            <h3>데이케어 센터</h3>
+            <p>전문 의료진이 상주하는 재활형 주야간보호센터로 어르신들이 안전하고 건강하게 생활할 수 있도록 지원합니다.</p>
+            <a href="#daycare" class="more-link">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-img">
+            <img src="about-visiting.jpg" alt="방문재가 서비스" loading="lazy" />
+            <div class="about-card-overlay"><span>Visiting Care</span></div>
+          </div>
+          <div class="about-card-body">
+            <h3>방문재가 서비스</h3>
+            <p>전문 간호사와 요양사가 직접 가정을 방문하여 방문간호, 방문요양, 가족요양 서비스를 제공합니다.</p>
+            <a href="#visiting" class="more-link">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-img">
+            <img src="about-rehab.jpg" alt="1:1 재활운동" loading="lazy" />
+            <div class="about-card-overlay"><span>Rehabilitation</span></div>
+          </div>
+          <div class="about-card-body">
+            <h3>1:1 방문운동</h3>
+            <p>신경계 및 근골격계 전문 운동사가 1:1 맞춤 방문운동 서비스를 제공하여 기능 회복을 돕습니다.</p>
+            <a href="#rehab" class="more-link">자세히 보기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-row"><span class="stat-num" data-target="10">0</span><span class="stat-unit">년+</span></div>
+          <p>운영 경력</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-row"><span class="stat-num" data-target="500">0</span><span class="stat-unit">명+</span></div>
+          <p>누적 이용자</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-row"><span class="stat-num" data-target="30">0</span><span class="stat-unit">명+</span></div>
+          <p>전문 케어 인력</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-row"><span class="stat-num" data-target="98">0</span><span class="stat-unit">%</span></div>
+          <p>이용자 만족도</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DAYCARE ===== -->
+  <section class="service-section" id="daycare">
+    <div class="container">
+      <div class="service-header">
+        <div class="section-label green">Day Care</div>
+        <h2 class="section-title">데이케어 센터</h2>
+        <p class="section-desc">재활형 주야간보호센터로 어르신들이 전문 의료진의 관리 아래 안전하게 생활할 수 있습니다.</p>
+      </div>
+      <div class="service-layout">
+        <div class="service-main-img">
+          <img src="daycare-bg.jpg" alt="데이케어 센터" loading="lazy" />
+          <div class="img-badge">
+            <span>재활형</span>
+            <strong>주야간보호</strong>
+          </div>
+        </div>
+        <div class="service-features">
+          <div class="feature-card">
+            <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d6b4f" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h4>의료 전문가 상주</h4>
+            <p>간호사, 물리치료사, 작업치료사 등 전문 의료진이 상시 대기합니다.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d6b4f" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div>
+            <h4>맞춤 재활 프로그램</h4>
+            <p>개인별 상태에 맞는 재활 프로그램을 제공하여 기능 회복을 돕습니다.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d6b4f" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <h4>사회적 교류 프로그램</h4>
+            <p>다양한 여가·문화 활동을 통해 어르신들의 정서적 건강을 지원합니다.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d6b4f" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h4>안전한 시설 환경</h4>
+            <p>어르신 안전을 위한 최신 시설과 장비를 갖추고 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="service-cta"><a href="#contact" class="btn-primary">센터 상담 신청</a></div>
+    </div>
+  </section>
+
+  <!-- ===== VISITING ===== -->
+  <section class="service-section alt" id="visiting">
+    <div class="container">
+      <div class="service-header">
+        <div class="section-label green">Visiting Care</div>
+        <h2 class="section-title">방문재가 서비스</h2>
+        <p class="section-desc">전문 인력이 직접 가정을 방문하여 어르신의 건강과 일상생활을 지원합니다.</p>
+      </div>
+      <div class="visiting-cards">
+        <div class="visiting-card">
+          <div class="visiting-img"><img src="visiting-bg.jpg" alt="방문간호" loading="lazy" /></div>
+          <div class="visiting-body">
+            <div class="visiting-num">01</div>
+            <h3>방문간호</h3>
+            <p>전문 간호사가 가정을 방문하여 건강 상태 체크, 투약 관리, 상처 처치 등의 의료 서비스를 제공합니다.</p>
+            <ul class="visiting-list">
+              <li>건강 상태 모니터링</li>
+              <li>투약 및 처치 관리</li>
+              <li>재활 교육 및 상담</li>
+            </ul>
+          </div>
+        </div>
+        <div class="visiting-card reverse">
+          <div class="visiting-img"><img src="about-visiting.jpg" alt="방문요양" loading="lazy" /></div>
+          <div class="visiting-body">
+            <div class="visiting-num">02</div>
+            <h3>방문요양</h3>
+            <p>전문 요양사가 가정을 방문하여 일상생활 지원, 신체기능 유지, 정서적 지원 등의 서비스를 제공합니다.</p>
+            <ul class="visiting-list">
+              <li>개인위생 및 목욕 지원</li>
+              <li>식사 준비 및 영양 관리</li>
+              <li>이동 및 보행 지원</li>
+            </ul>
+          </div>
+        </div>
+        <div class="visiting-card">
+          <div class="visiting-img"><img src="about-rehab.jpg" alt="가족요양" loading="lazy" /></div>
+          <div class="visiting-body">
+            <div class="visiting-num">03</div>
+            <h3>가족요양</h3>
+            <p>가족 구성원이 직접 어르신을 돌볼 수 있도록 지원하고, 전문 교육과 상담을 제공합니다.</p>
+            <ul class="visiting-list">
+              <li>가족 돌봄 교육</li>
+              <li>심리적 지원 및 상담</li>
+              <li>장기요양 급여 연계</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REHAB ===== -->
+  <section class="service-section" id="rehab">
+    <div class="container">
+      <div class="rehab-layout">
+        <div class="rehab-text">
+          <div class="section-label green">1:1 Rehabilitation</div>
+          <h2 class="section-title">1:1 방문운동</h2>
+          <p class="section-desc left">전문 운동 전문가가 직접 방문하여 개인별 맞춤 재활운동 서비스를 제공합니다.</p>
+          <div class="rehab-types">
+            <div class="rehab-type active" data-type="0">
+              <div class="rehab-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM12 9v6M6 18c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+              <div>
+                <h4>신경계 재활운동</h4>
+                <p>뇌졸중, 파킨슨병 등 신경계 질환 어르신을 위한 전문 재활운동</p>
+              </div>
+            </div>
+            <div class="rehab-type" data-type="1">
+              <div class="rehab-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="5" r="3"/><path d="M6 22v-4a6 6 0 0112 0v4"/><path d="M9 14l3 3 3-3"/></svg></div>
+              <div>
+                <h4>근골격계 재활운동</h4>
+                <p>관절염, 골다공증 등 근골격계 질환 어르신을 위한 맞춤 운동</p>
+              </div>
+            </div>
+            <div class="rehab-type" data-type="2">
+              <div class="rehab-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+              <div>
+                <h4>일상생활 동작 훈련</h4>
+                <p>혼자서 일상생활이 가능하도록 기능적 동작 능력을 향상시킵니다</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn-primary">1:1 재활운동 상담</a>
+        </div>
+        <div class="rehab-img">
+          <img src="rehab-bg.jpg" alt="1:1 재활운동" loading="lazy" />
+          <div class="rehab-badge">
+            <div class="badge-num">1:1</div>
+            <div class="badge-text">맞춤 케어</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIFE GUIDE ===== -->
+  <section class="life-section alt" id="life">
+    <div class="container">
+      <div class="section-row-header">
+        <div>
+          <div class="section-label green">Life Guide</div>
+          <h2 class="section-title">생활안내</h2>
+        </div>
+        <a href="#" class="btn-outline">더보기 +</a>
+      </div>
+      <div class="news-grid">
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="about-daycare.jpg" alt="생활안내1" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">건강정보</span>
+            <h4>어르신 낙상 예방을 위한 실내 안전 수칙</h4>
+            <p class="news-date">2024.03.15</p>
+          </div>
+        </a>
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="about-visiting.jpg" alt="생활안내2" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">영양정보</span>
+            <h4>노년기 근감소증 예방을 위한 식이요법</h4>
+            <p class="news-date">2024.03.10</p>
+          </div>
+        </a>
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="rehab-bg.jpg" alt="생활안내3" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">재활정보</span>
+            <h4>뇌졸중 후 재활운동의 중요성과 방법</h4>
+            <p class="news-date">2024.03.05</p>
+          </div>
+        </a>
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="daycare-bg.jpg" alt="생활안내4" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">센터소식</span>
+            <h4>웰더스 데이케어 센터 봄맞이 행사 진행</h4>
+            <p class="news-date">2024.02.28</p>
+          </div>
+        </a>
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="visiting-bg.jpg" alt="생활안내5" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">건강정보</span>
+            <h4>관절염 어르신을 위한 재활 운동 효과</h4>
+            <p class="news-date">2024.02.20</p>
+          </div>
+        </a>
+        <a href="#" class="news-card">
+          <div class="news-img"><img src="about-rehab.jpg" alt="생활안내6" loading="lazy" /></div>
+          <div class="news-body">
+            <span class="news-category">요양정보</span>
+            <h4>장기요양 등급 신청 방법과 필요 서류</h4>
+            <p class="news-date">2024.02.15</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASES ===== -->
+  <section class="cases-section" id="cases">
+    <div class="container">
+      <div class="section-row-header">
+        <div>
+          <div class="section-label green">Case Study</div>
+          <h2 class="section-title">이용사례</h2>
+        </div>
+        <a href="#" class="btn-outline">더보기 +</a>
+      </div>
+      <div class="cases-empty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <p>등록된 이용사례가 없습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="section-label light">Customer Center</div>
+          <h2 class="section-title white">고객센터</h2>
+          <div class="contact-phone">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.1 19.79 19.79 0 01.22.5 2 2 0 012.21 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            <span>1566-6597</span>
+          </div>
+          <div class="contact-hours">
+            <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 월~토 09:00 ~ 18:00</p>
+            <p><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg> 일요일 전화상담 가능</p>
+          </div>
+          <div class="contact-links">
+            <a href="#" class="contact-link-btn">공지사항</a>
+            <a href="#" class="contact-link-btn">FAQ</a>
+            <a href="#" class="contact-link-btn">1:1 상담</a>
+          </div>
+          <!-- 위치 -->
+          <div class="contact-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>경기도 성남시 분당구 장안로 39, 한일빌딩 5층</span>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>온라인 상담 신청</h3>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>성함 <em>*</em></label>
+                <input type="text" placeholder="성함을 입력해 주세요" required />
+              </div>
+              <div class="form-group">
+                <label>연락처 <em>*</em></label>
+                <input type="tel" placeholder="010-0000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>문의 서비스</label>
+              <select>
+                <option value="">서비스를 선택해 주세요</option>
+                <option>데이케어 센터 이용</option>
+                <option>방문간호 서비스</option>
+                <option>방문요양 서비스</option>
+                <option>1:1 재활운동</option>
+                <option>기타 문의</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>상담 내용</label>
+              <textarea rows="4" placeholder="궁금하신 내용을 입력해 주세요"></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="privacyCheck" />
+              <label for="privacyCheck">개인정보 수집·이용에 동의합니다 <a href="#">(보기)</a></label>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">상담 신청하기</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section class="map-section">
+    <div class="map-header">
+      <div class="container">
+        <div class="section-label green">Location</div>
+        <h2 class="section-title">오시는 길</h2>
+        <p class="map-addr">경기도 성남시 분당구 장안로 39, 한일빌딩 5층</p>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.8!2d127.112!3d37.3839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b59a3e2a2d6d5%3A0x1!2z6rK96riw64-EIOyduOqztCDrs7TrjIDqtawg7J6l7JeI66GcIDM5!5e0!3m2!1sko!2skr!4v1"
+        width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="웰더스 위치">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="logo-icon-dark">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+              <path d="M5 8L13 28L20 14L27 28L35 8" stroke="#3a8c62" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="footer-logo-text">WELDERS</span>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-btn" title="YouTube">
+            <svg width="18" height="13" viewBox="0 0 24 16" fill="#888"><path d="M23.5 2.5a3 3 0 00-2.1-2.1C19.5 0 12 0 12 0S4.5 0 2.6.4A3 3 0 00.5 2.5C0 4.4 0 8 0 8s0 3.6.5 5.5a3 3 0 002.1 2.1C4.5 16 12 16 12 16s7.5 0 9.4-.4a3 3 0 002.1-2.1C24 11.6 24 8 24 8s0-3.6-.5-5.5z"/><polygon points="9.75,11.5 15.5,8 9.75,4.5" fill="white"/></svg>
+          </a>
+          <a href="#" class="social-btn" title="블로그">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </a>
+          <a href="#" class="social-btn" title="스마트스토어">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p><strong>상호</strong> 웰더스 시니어 케어 &nbsp;|&nbsp; <strong>대표자</strong> 박미례 &nbsp;|&nbsp; <strong>사업자등록번호</strong> 239-88-01492</p>
+        <p><strong>주소</strong> 경기도 성남시 분당구 장안로 39, 한일빌딩 5층</p>
+        <p><strong>대표전화</strong> 1566-6597 &nbsp;|&nbsp; <strong>운영시간</strong> 월~토 09:00~18:00 (일요일 전화상담 가능)</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 WELDERS Senior Care. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+          <a href="#">사이트맵</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING TOK BTN ===== -->
+  <a href="#contact" class="tok-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#3c1e1e"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.76 1.28 5.22 3.3 6.9-.12 1.2-.8 3.1-3.3 4.1 2.5.1 5.1-1.1 6.6-2.2.44.06.9.1 1.4.1 5.52 0 10-4.02 10-9S17.52 2 12 2z"/></svg>
+    <span>톡문의</span>
+  </a>
+
+  <!-- 탑버튼 -->
+  <button class="top-btn" id="topBtn" aria-label="맨 위로">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>
