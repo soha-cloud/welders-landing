@@ -1,163 +1,146 @@
 'use strict';
 
-// ===== HEADER SCROLL =====
+// ===== FULLPAGE SCROLL ENGINE =====
+const sections = Array.from(document.querySelectorAll('.fp-section'));
+const navItems = Array.from(document.querySelectorAll('.quick-nav li'));
+const footer = document.getElementById('footer');
 const header = document.getElementById('header');
 const quickNav = document.getElementById('quickNav');
-const topBtn = document.getElementById('topBtn');
 
-function onScroll() {
-  const y = window.scrollY;
-  // 헤더 scrolled
-  header.classList.toggle('scrolled', y > 60);
-  // 퀵 네비 다크모드
-  quickNav.classList.toggle('dark', y > window.innerHeight * 0.8);
-  // 탑 버튼
-  topBtn.classList.toggle('show', y > 400);
-}
-window.addEventListener('scroll', onScroll, { passive: true });
-// 초기 실행 (페이지 로드 시 스크롤 위치 반영)
-onScroll();
+let current = 0;
+let isAnimating = false;
+const TOTAL = sections.length;
 
-// ===== TOP BUTTON =====
-topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+function goTo(idx) {
+  if (isAnimating || idx === current || idx < 0 || idx >= TOTAL) return;
+  isAnimating = true;
 
-// ===== HAMBURGER MENU =====
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+  const prev = current;
+  current = idx;
 
-// 오버레이 동적 생성
-const overlay = document.createElement('div');
-overlay.className = 'mobile-overlay';
-document.body.appendChild(overlay);
+  // position all sections
+  sections.forEach((sec, i) => {
+    sec.classList.remove('active', 'above');
+    if (i < current) sec.classList.add('above');
+    else if (i === current) sec.classList.add('active');
+    // else: default = below (translateY 100%)
+  });
 
-function toggleMenu(open) {
-  hamburger.classList.toggle('open', open);
-  mobileMenu.classList.toggle('open', open);
-  overlay.classList.toggle('show', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-}
+  // header style
+  header.classList.toggle('scrolled', current > 0);
 
-hamburger.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('open')));
-overlay.addEventListener('click', () => toggleMenu(false));
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  // quick nav
+  navItems.forEach((li, i) => li.classList.toggle('active', i === current));
 
-// ===== HERO SLIDER =====
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-let sliderTimer = null;
+  // quick nav text color (light/dark sections)
+  const lightSections = [2, 3, 5]; // visiting, rehab, cases have light overlays
+  quickNav.classList.toggle('dark', lightSections.includes(current));
 
-function goToSlide(idx) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = (idx + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
+  // footer: show on last section
+  footer.classList.toggle('show', current === TOTAL - 1);
+
+  setTimeout(() => { isAnimating = false; }, 900);
 }
 
-function startAutoSlide() {
-  clearInterval(sliderTimer);
-  sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
-}
+// ===== SCROLL EVENT =====
+let wheelLock = false;
+window.addEventListener('wheel', (e) => {
+  if (wheelLock || isAnimating) return;
+  wheelLock = true;
+  setTimeout(() => { wheelLock = false; }, 1000);
+  if (e.deltaY > 0) goTo(current + 1);
+  else goTo(current - 1);
+}, { passive: true });
 
-document.getElementById('sliderNext').addEventListener('click', () => { goToSlide(currentSlide + 1); startAutoSlide(); });
-document.getElementById('sliderPrev').addEventListener('click', () => { goToSlide(currentSlide - 1); startAutoSlide(); });
-dots.forEach(dot => dot.addEventListener('click', () => { goToSlide(+dot.dataset.idx); startAutoSlide(); }));
-startAutoSlide();
+// ===== TOUCH SUPPORT =====
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchend', (e) => {
+  const diff = touchStartY - e.changedTouches[0].clientY;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) goTo(current + 1);
+    else goTo(current - 1);
+  }
+}, { passive: true });
 
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+// ===== KEYBOARD =====
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === 'PageDown') goTo(current + 1);
+  if (e.key === 'ArrowUp' || e.key === 'PageUp') goTo(current - 1);
+});
+
+// ===== SCROLL INDICATORS =====
+document.querySelectorAll('.scroll-indicator').forEach(el => {
+  el.addEventListener('click', () => {
+    const idx = parseInt(el.dataset.goto);
+    if (!isNaN(idx)) goTo(idx);
   });
 });
 
-// ===== ACTIVE SECTION (quick nav) =====
-const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.quick-nav li');
-
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navItems.forEach(li => li.classList.remove('active'));
-      const match = document.querySelector(`.quick-nav a[data-section="${id}"]`);
-      if (match) match.parentElement.classList.add('active');
-    }
+// ===== QUICK NAV CLICKS =====
+navItems.forEach((li, i) => {
+  li.addEventListener('click', (e) => {
+    e.preventDefault();
+    goTo(i);
   });
-}, { threshold: 0.35 });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-// ===== SCROLL REVEAL =====
-const revealTargets = document.querySelectorAll(
-  '.about-card, .feature-card, .visiting-card, .rehab-type, .news-card, .stat-item'
-);
-
-revealTargets.forEach((el, i) => {
-  el.classList.add('reveal');
-  if (i % 3 === 1) el.classList.add('reveal-delay-1');
-  if (i % 3 === 2) el.classList.add('reveal-delay-2');
 });
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+// ===== SERVICE CARD LINKS =====
+document.querySelectorAll('[data-goto]').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    const idx = parseInt(el.dataset.goto);
+    if (!isNaN(idx)) goTo(idx);
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+});
 
-revealTargets.forEach(el => revealObserver.observe(el));
+// ===== GNB MEGA MENU HOVER =====
+const megaMenu = document.getElementById('megaMenu');
+const gnbEl = document.getElementById('gnb');
+
+gnbEl.addEventListener('mouseenter', () => megaMenu.classList.add('show'));
+gnbEl.addEventListener('mouseleave', () => megaMenu.classList.remove('show'));
+megaMenu.addEventListener('mouseenter', () => megaMenu.classList.add('show'));
+megaMenu.addEventListener('mouseleave', () => megaMenu.classList.remove('show'));
+
+// ===== CASE TABS =====
+document.querySelectorAll('.case-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
 
 // ===== COUNTER ANIMATION =====
-const counters = document.querySelectorAll('.stat-num');
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
+// Animate stat numbers when section 1 (daycare) is first visited
+const statNums = document.querySelectorAll('.stat-num');
+let statsAnimated = false;
+
+function animateStats() {
+  if (statsAnimated) return;
+  statsAnimated = true;
+  statNums.forEach(el => {
     const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
     const duration = 1600;
     const step = target / (duration / 16);
-    let current = 0;
+    let val = 0;
     const timer = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = Math.floor(current);
-      if (current >= target) clearInterval(timer);
+      val = Math.min(val + step, target);
+      el.textContent = Math.floor(val) + (val >= target ? suffix : '');
+      if (val >= target) clearInterval(timer);
     }, 16);
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.5 });
-
-counters.forEach(c => counterObserver.observe(c));
-
-// ===== REHAB TYPE TOGGLE =====
-document.querySelectorAll('.rehab-type').forEach(el => {
-  el.addEventListener('click', () => {
-    document.querySelectorAll('.rehab-type').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
-  });
-});
-
-// ===== CONTACT FORM =====
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const privacy = document.getElementById('privacyCheck');
-    if (!privacy.checked) { alert('개인정보 수집·이용에 동의해 주세요.'); return; }
-    submitBtn.textContent = '신청 완료 ✓';
-    submitBtn.classList.add('success');
-    submitBtn.disabled = true;
-    setTimeout(() => {
-      submitBtn.textContent = '상담 신청하기';
-      submitBtn.classList.remove('success');
-      submitBtn.disabled = false;
-      contactForm.reset();
-    }, 3000);
   });
 }
+
+// ===== INIT =====
+function init() {
+  // Set initial state: section 0 active, rest below
+  sections.forEach((sec, i) => {
+    if (i === 0) sec.classList.add('active');
+    // others have no class → default CSS makes them translateY(100%)
+  });
+  navItems[0].classList.add('active');
+}
+
+init();
